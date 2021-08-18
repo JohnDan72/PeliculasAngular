@@ -1,0 +1,26 @@
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide" *ngFor="let actor of cast; let ind = index">
+            <img [src]="actor.profile_path | poster" alt="" class="img-fluid">
+            <div class="movie-description">
+                <h3>{{ actor.name | slice: 0:20 }}</h3>
+                <h5>{{ actor.character | slice: 0:20 }}</h5>
+                <p>{{ actor.popularity }}</p>
+            </div>
+        </div>
+
+        ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+</div>

@@ -1,0 +1,30 @@
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide" *ngFor="let peli of movies; let ind = index" [ngStyle]="{  
+                    'background-size': 'cover',
+                    'background-position': 'center',
+                    'background-attachment': 'contain',
+                    'background': 'url(https://image.tmdb.org/t/p/w500'+peli.backdrop_path+')'
+                    
+                }">
+            <div class="movie-description">
+                <h3>{{ peli.title | slice: 0:20 }}</h3>
+                <p>{{ peli.overview | slice: 0:130 }}</p>
+            </div>
+        </div>
+
+        ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+</div>

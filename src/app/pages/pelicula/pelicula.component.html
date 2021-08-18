@@ -1,0 +1,36 @@
+<div class="row" *ngIf="pelidata">
+    <div class="col-auto mx-auto">
+        <img [src]="pelidata.poster_path | poster" [alt]="pelidata.title" class="img-thumbnail imgPoster">
+    </div>
+
+    <div class="col-6">
+        <h3>{{pelidata.title}}</h3>
+
+        <div class="row">
+            <div class="col">
+                <star-rating [value]="pelidata.vote_average" totalstars="10" checkedcolor="yellow" uncheckedcolor="black" size="14px" readonly="false"></star-rating>
+            </div>
+            <div class="col">
+                <p>{{pelidata.vote_average}}</p>
+            </div>
+
+            <div class="col-12 text-white">
+                {{pelidata.overview}}
+            </div>
+
+            <div class="col-12 mt-4">
+                <button class="btn btn-outline-info" (click)="onBackClick()">
+                    Regresar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cast -->
+    <div class="col-12 mt-3">
+        <h3>Reparto</h3>
+    </div>
+    <div class="col-12 mt-4" *ngIf="reparto.length > 0">
+        <app-cast-slide-show [cast]=reparto></app-cast-slide-show>
+    </div>
+</div>
